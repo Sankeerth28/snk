@@ -8,6 +8,8 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages  # ✅ This is the required environment name for GitHub Pages
 
     steps:
       - name: Generate GitHub contribution snake SVG
