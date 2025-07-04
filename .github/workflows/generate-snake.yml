@@ -8,17 +8,20 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages  # ✅ This is the required environment name for GitHub Pages
+    environment: 
+      name: github-pages  # ✅ REQUIRED for Pages deployment
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Generate GitHub contribution snake SVG
         uses: Platane/snk@v3
         with:
           github_user_name: Sankeerth28
           svg_out_path: dist/github-contribution-grid-snake.svg
 
-      - name: Push to output branch
+      - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
